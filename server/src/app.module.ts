@@ -5,9 +5,10 @@ import { SearchModule } from './search/search.module';
 import { PlayListModule } from './play-list/play-list.module';
 import { KeysModule } from './keys/keys.module';
 import { InfoModule } from './info/info.module';
+import { StreamModule } from './stream/stream.module';
 
 @Module({
-  imports: [SearchModule, PlayListModule, KeysModule, InfoModule],
+  imports: [SearchModule, PlayListModule, KeysModule, InfoModule, StreamModule],
   controllers: [AppController],
   providers: [AppService],
 })
