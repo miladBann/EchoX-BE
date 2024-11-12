@@ -16,25 +16,5 @@ export class SearchController {
         }
     }
 
-    @Get('stream/audio')
-    streamAudio(@Query('url') videoUrl: string, @Res() res: Response): void {
-        try {
-            res.setHeader('Content-Type', 'audio/mpeg');
-            res.setHeader('Transfer-Encoding', 'chunked');
-            this.searchService.streamMedia('audio', res, videoUrl);
-        } catch (error) {
-            res.status(500).json({ message: 'Error streaming audio' });
-        }
-    }
-
-    @Get('stream/video')
-    streamVideo(@Query('url') videoUrl: string, @Res() res: Response): void {
-        try {
-            res.setHeader('Content-Type', 'video/mp4');
-            res.setHeader('Transfer-Encoding', 'chunked');
-            this.searchService.streamMedia('video', res, videoUrl);
-        } catch (error) {
-            res.status(500).json({ message: 'Error streaming video' });
-        }
-    }
+    
 }
