@@ -16,5 +16,16 @@ export class SearchController {
         }
     }
 
+    @Get('youtube-autocomplete') async getYoutubeAutocomplete( @Query('query') query: string, @Res() res: Response): Promise<void> {
+        try {
+            const suggestions = await this.searchService.getYoutubeSuggestions(query);
+            res.json(suggestions);
+        } catch (error) {
+            res
+            .status(500)
+            .json({ message: 'Error fetching YouTube autocomplete suggestions' });
+        }
+    }
+
     
 }
