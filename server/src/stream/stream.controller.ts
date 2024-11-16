@@ -4,7 +4,7 @@ import { Response } from 'express';
 
 @Controller('stream')
 export class StreamController {
-    constructor(private readonly streamService: StreamService){}
+    constructor(private readonly streamService: StreamService) {}
 
     @Get('audio')
     streamAudio(@Query('url') videoUrl: string, @Res() res: Response): void {
