@@ -6,7 +6,7 @@ import { SearchService } from './search.service';
 export class SearchController {
     constructor(private readonly searchService: SearchService){}
 
-    @Get("Search")
+    @Get("")
     async searchYoutube(@Query('query') query: string, @Res() res: Response): Promise<void> {
         try {
             const data = await this.searchService.SearchSongs(query);
