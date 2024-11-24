@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Res } from '@nestjs/common';
+import { Controller, Get, Query, Res, Headers } from '@nestjs/common';
 import { Response } from 'express';
 import { SearchService } from './search.service';
 
@@ -7,9 +7,10 @@ export class SearchController {
     constructor(private readonly searchService: SearchService){}
 
     @Get("")
-    async searchYoutube(@Query('query') query: string, @Res() res: Response): Promise<void> {
+    async searchYoutube(@Query('query') query: string,@Headers('Authorization') userToken: string,@Res() res: Response): Promise<void> {
+        console.log("user token:" + userToken);
         try {
-            const data = await this.searchService.SearchSongs(query);
+            const data = await this.searchService.SearchSongs(query, userToken);
             res.json(data);
         }catch (error) {
             res.status(500).json({ message: 'Error fetching data from YouTube' });
