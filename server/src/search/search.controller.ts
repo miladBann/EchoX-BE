@@ -7,7 +7,7 @@ export class SearchController {
     constructor(private readonly searchService: SearchService){}
 
     @Get("")
-    async searchYoutube(@Query('query') query: string,@Headers('Authorization') userToken: string,@Res() res: Response): Promise<void> {
+    async searchYoutube(@Query('query') query: string, @Headers('Authorization') userToken: string, @Res() res: Response): Promise<void> {
         console.log("user token:" + userToken);
         try {
             const data = await this.searchService.SearchSongs(query, userToken);

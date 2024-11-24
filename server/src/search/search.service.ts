@@ -11,7 +11,7 @@ export class SearchService {
         try {
             const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
                 headers: {
-                    Authorization: `${userToken}`,
+                    Authorization: userToken,
                 },
                 params: {
                   part: 'snippet',
