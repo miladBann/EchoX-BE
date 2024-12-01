@@ -7,12 +7,9 @@ export class SearchService {
     private readonly customeSearchKey = "AIzaSyA__t6xgZ_o0T5LM_NFEnJh4DIi-6XmLog";
     private readonly searchEngineID = "a419f6a00e73747cf";
     
-    async SearchSongs(query: string, userToken: string): Promise<any> {
+    async SearchSongs(query: string): Promise<any> {
         try {
             const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
-                headers: {
-                    Authorization: userToken,
-                },
                 params: {
                   part: 'snippet',
                   maxResults: 10,
